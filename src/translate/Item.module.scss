@@ -1,7 +1,22 @@
 @import './../shared/variables.module.scss';
 
+$color-caption: #484848a6;
+
 .container {
   display: flex;
   justify-content: space-between;
-  padding: $space-md;
+  padding: $size-md;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.right {
+  text-align: right;
+}
+
+.caption {
+  composes: right;
+  margin-top: $size-sm;
+  padding: 0;
+  font-size: $font-sm;
+  color: $color-caption;
 }

@@ -1,0 +1,15 @@
+@import './../shared/variables.module.scss';
+
+.selectors {
+  display: flex;
+  justify-content: space-evenly;
+  padding: $size-md 0;
+  margin: $size-md 0;
+  border: $border-light;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.container {
+  padding: 0 $size-md;
+}

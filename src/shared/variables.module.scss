@@ -1,3 +1,14 @@
-$space-md: 1rem;
-$color-text-grey: #484848;
-$border-grey: 1px solid rgb(228, 228, 228);
+$size-sm: 0.5rem;
+$size-md: 1rem;
+$size-lg: 1.5rem;
+
+$font-sm: 0.75rem;
+
+$color-medium-grey: #484848;
+$color-light-grey: #EBEBEB;
+
+$border-medium: 1px solid rgb(228, 228, 228);
+$border-light: 1px solid $color-light-grey;
+
+$box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+$border-radius: 4px;

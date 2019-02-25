@@ -1,30 +1,65 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
+import Selector from './Selector';
 import Item from './Item';
 import translations from './../shared/translations';
-import { ENGLISH, SPANISH } from './../shared/locales';
+import locales, { ENGLISH } from './../shared/locales';
+
+import styles from './TranslateContainer.module.scss';
 
 class TranslateContainer extends Component {
   state = {
     // TODO: make dynamic
-    selectedLocale: SPANISH,
+    nativeLocale: ENGLISH,
+    selectedLocale: null,
   }
 
-  translate = (native, selected) => translations[native][selected];
+  handleLocaleChange = target => event => {
+    const locale = locales.find(locale =>
+      locale.value === event.target.value
+    );
+
+    this.setState({
+      [target]: locale,
+    });
+  }
+
+  translateLocales = (native, selected) =>
+    selected
+      ? translations[native.value][selected.value]
+      : translations[native.value]
 
   render() {
-    const { nativeLocale } = this.props;
-    const { selectedLocale } = this.state;
-    const translated = this.translate(nativeLocale, selectedLocale);
+    const {
+      nativeLocale,
+      selectedLocale,
+    } = this.state;
+    const sameLocale = nativeLocale !== selectedLocale;
+    const translated = selectedLocale && sameLocale
+      ? this.translateLocales(nativeLocale, selectedLocale)
+      : null;
 
     return (
-      <div>
+      <div className={styles.container}>
+        <div className={styles.selectors}>
+          <Selector
+            selected={nativeLocale}
+            options={locales}
+            onChange={(e) => this.handleLocaleChange('nativeLocale')(e)}
+          />
+          <Selector
+            selected={selectedLocale}
+            options={locales}
+            onChange={(e) => this.handleLocaleChange('selectedLocale')(e)}
+          />
+        </div>
         {
-          translated.map(({ context, translation }) =>
+          translated &&
+          translated.map(({ context, translation, pronounciation }) =>
             <Item
               context={context}
               translation={translation}
+              pronounciation={pronounciation}
             />
           )
         }
@@ -32,14 +67,5 @@ class TranslateContainer extends Component {
     );
   }
 }
-
-// TODO: Use context
-TranslateContainer.propTypes = {
-  nativeLocale: PropTypes.string,
-};
-
-TranslateContainer.defaultProps = {
-  nativeLocale: ENGLISH,
-};
 
 export default TranslateContainer;
