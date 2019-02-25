@@ -7,7 +7,7 @@ const Item = ({
   context,
   translation,
 }) => (
-  <li className={styles.item}>
+  <li className={styles.container}>
     <p>{context}</p>
     <p>{translation}</p>
   </li>

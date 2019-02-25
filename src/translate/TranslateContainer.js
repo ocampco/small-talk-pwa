@@ -5,7 +5,7 @@ import Item from './Item';
 import translations from './../shared/translations';
 import { ENGLISH, SPANISH } from './../shared/locales';
 
-class TranslationsContainer extends Component {
+class TranslateContainer extends Component {
   state = {
     // TODO: make dynamic
     selectedLocale: SPANISH,
@@ -34,12 +34,12 @@ class TranslationsContainer extends Component {
 }
 
 // TODO: Use context
-TranslationsContainer.propTypes = {
+TranslateContainer.propTypes = {
   nativeLocale: PropTypes.string,
 };
 
-TranslationsContainer.defaultProps = {
+TranslateContainer.defaultProps = {
   nativeLocale: ENGLISH,
 };
 
-export default TranslationsContainer;
+export default TranslateContainer;

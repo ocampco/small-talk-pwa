@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-import TranslationsContainer from './translations/TranslationsContainer';
+import TranslateContainer from './translate/TranslateContainer';
+import Footer from './shared/Footer';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <TranslationsContainer />
+        <TranslateContainer />
+        <Footer />
       </div>
     );
   }
