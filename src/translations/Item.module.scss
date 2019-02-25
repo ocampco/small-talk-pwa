@@ -1,0 +1,7 @@
+@import './../shared/variables.module.scss';
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-md;
+}
