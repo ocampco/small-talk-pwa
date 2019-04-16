@@ -6,9 +6,9 @@ import Swap from './../shared/icons/swap.svg';
 import translations from './../shared/translations';
 import locales, { ENGLISH } from './../shared/locales';
 
-import styles from './TranslateContainer.module.scss';
+import styles from './Translate.module.scss';
 
-class TranslateContainer extends Component {
+class Translate extends Component {
   state = {
     nativeLocale: ENGLISH,
     translationLocale: ENGLISH,
@@ -78,4 +78,4 @@ class TranslateContainer extends Component {
   }
 }
 
-export default TranslateContainer;
+export default Translate;
