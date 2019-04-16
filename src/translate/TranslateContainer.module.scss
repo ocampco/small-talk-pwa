@@ -1,5 +1,11 @@
 @import './../shared/variables.module.scss';
 
+$swap-size: 1.75rem;
+
+.container {
+  padding: 0 $size-md;
+}
+
 .selectors {
   display: flex;
   justify-content: space-evenly;
@@ -10,6 +16,7 @@
   box-shadow: $box-shadow;
 }
 
-.container {
-  padding: 0 $size-md;
+.swap {
+  height: $swap-size;
+  width: $swap-size;
 }

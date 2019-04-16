@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Selector from './Selector';
 import Item, { MessageItem } from './Item';
+import Swap from './../shared/icons/swap.svg';
 import translations from './../shared/translations';
 import locales, { ENGLISH } from './../shared/locales';
 
@@ -19,6 +20,11 @@ class TranslateContainer extends Component {
 
     this.setState({ [targetLocale]: selectedLocale });
   }
+
+  swapLocales = () => this.setState({
+    nativeLocale: this.state.translationLocale,
+    translationLocale: this.state.nativeLocale,
+  });
 
   translateLocales = (primary, secondary) =>
     translations[primary.value][secondary.value]
@@ -41,6 +47,16 @@ class TranslateContainer extends Component {
             options={locales}
             onChange={(e) => this.handleLocaleChange('nativeLocale')(e)}
           />
+          <button
+            type="button"
+            onClick={this.swapLocales}
+          >
+            <img
+            className={styles.swap}
+            src={Swap}
+            alt="Swap languages"
+            />
+          </button>
           <Selector
             selected={translationLocale}
             options={locales}
