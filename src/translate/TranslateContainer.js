@@ -9,35 +9,29 @@ import styles from './TranslateContainer.module.scss';
 
 class TranslateContainer extends Component {
   state = {
-    // TODO: make dynamic
     nativeLocale: ENGLISH,
-    selectedLocale: null,
+    translationLocale: ENGLISH,
   }
 
-  handleLocaleChange = target => event => {
-    const locale = locales.find(locale =>
-      locale.value === event.target.value
-    );
+  handleLocaleChange = targetLocale => event => {
+    const selectedLocale = locales
+      .find(locale => locale.value === event.target.value);
 
-    this.setState({
-      [target]: locale,
-    });
+    this.setState({ [targetLocale]: selectedLocale });
   }
 
-  translateLocales = (native, selected) =>
-    selected
-      ? translations[native.value][selected.value]
-      : translations[native.value]
+  translateLocales = (primary, secondary) =>
+    translations[primary.value][secondary.value]
 
   render() {
     const {
       nativeLocale,
-      selectedLocale,
+      translationLocale,
     } = this.state;
-    const sameLocale = nativeLocale !== selectedLocale;
-    const translated = selectedLocale && sameLocale
-      ? this.translateLocales(nativeLocale, selectedLocale)
-      : null;
+    const isSameLocale = nativeLocale === translationLocale;
+    const translations = !isSameLocale
+      ? this.translateLocales(nativeLocale, translationLocale)
+      : [];
 
     return (
       <div className={styles.container}>
@@ -48,14 +42,13 @@ class TranslateContainer extends Component {
             onChange={(e) => this.handleLocaleChange('nativeLocale')(e)}
           />
           <Selector
-            selected={selectedLocale}
+            selected={translationLocale}
             options={locales}
-            onChange={(e) => this.handleLocaleChange('selectedLocale')(e)}
+            onChange={(e) => this.handleLocaleChange('translationLocale')(e)}
           />
         </div>
         {
-          translated &&
-          translated.map(({ context, translation, pronounciation }) =>
+          translations.map(({ context, translation, pronounciation }) =>
             <Item
               context={context}
               translation={translation}
