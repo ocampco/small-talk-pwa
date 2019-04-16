@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Selector from './Selector';
-import Item from './Item';
+import Item, { MessageItem } from './Item';
 import translations from './../shared/translations';
 import locales, { ENGLISH } from './../shared/locales';
 
@@ -31,7 +31,7 @@ class TranslateContainer extends Component {
     const isSameLocale = nativeLocale === translationLocale;
     const translations = !isSameLocale
       ? this.translateLocales(nativeLocale, translationLocale)
-      : [];
+      : null;
 
     return (
       <div className={styles.container}>
@@ -47,14 +47,15 @@ class TranslateContainer extends Component {
             onChange={(e) => this.handleLocaleChange('translationLocale')(e)}
           />
         </div>
-        {
-          translations.map(({ context, translation, pronounciation }) =>
+        { translations
+          ? translations.map(({ context, translation, pronounciation }) =>
             <Item
               context={context}
               translation={translation}
               pronounciation={pronounciation}
             />
           )
+          : <MessageItem>Select a translation</MessageItem>
         }
       </div>
     );
