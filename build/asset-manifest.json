@@ -1,0 +1,15 @@
+{
+  "main.css": "/small-talk-pwa/static/css/main.a621bbcb.chunk.css",
+  "main.js": "/small-talk-pwa/static/js/main.16160a7c.chunk.js",
+  "main.js.map": "/small-talk-pwa/static/js/main.16160a7c.chunk.js.map",
+  "runtime~main.js": "/small-talk-pwa/static/js/runtime~main.bb806ce6.js",
+  "runtime~main.js.map": "/small-talk-pwa/static/js/runtime~main.bb806ce6.js.map",
+  "static/js/2.60b1587c.chunk.js": "/small-talk-pwa/static/js/2.60b1587c.chunk.js",
+  "static/js/2.60b1587c.chunk.js.map": "/small-talk-pwa/static/js/2.60b1587c.chunk.js.map",
+  "index.html": "/small-talk-pwa/index.html",
+  "precache-manifest.d68baca0d5fbdb69ffe4aa5b4fbd94e5.js": "/small-talk-pwa/precache-manifest.d68baca0d5fbdb69ffe4aa5b4fbd94e5.js",
+  "service-worker.js": "/small-talk-pwa/service-worker.js",
+  "static/css/main.a621bbcb.chunk.css.map": "/small-talk-pwa/static/css/main.a621bbcb.chunk.css.map",
+  "static/media/swap.svg": "/small-talk-pwa/static/media/swap.443d813a.svg",
+  "static/media/translate.svg": "/small-talk-pwa/static/media/translate.fc6c1dcd.svg"
+}
