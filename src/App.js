@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Translate from './translate/Translate';
 import Footer from './shared/Footer';
+import withLoadingSplash from './app/withLoadingSplash';
 
 class App extends Component {
   render() {
@@ -14,4 +15,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withLoadingSplash(App);

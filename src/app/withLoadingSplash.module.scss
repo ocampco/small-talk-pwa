@@ -1,0 +1,25 @@
+@import './../shared/variables.module.scss';
+
+$icon-size: 5rem;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.icon {
+  max-width: $icon-size;
+}
+
+.heading {
+  margin-bottom: $size-md;
+  color: $color-grey-20;
+  text-align: center;
+}
+
+.caption {
+  font-size: $font-sm;
+}
